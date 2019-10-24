@@ -89,9 +89,11 @@
     <script type="text/javascript" src="https://sessionize.com/api/v2/vebc2t4q/view/gridtable"></script>
 
     <script type="text/javascript">
+        var mb12id = document.querySelectorAll('[data-roomid="9611"]');
+        mb12id[0].parentNode.removeChild(mb12id);
+
         var mb12 = document.querySelectorAll('[data-room-name="Maroon Bells 1&2"]');
         for (var i = 0; i < mb12.length; ++i) {
-            var empty = mb12[i].parentNode.querySelectorAll('[class="sz-session-empty"]');
             var mb12Room = mb12[i].querySelectorAll('[class="sz-session__room"]');
             mb12[i].colSpan = 5;
             mb12[i].style.textAlign = 'center';
@@ -99,11 +101,19 @@
             mb12[i].style.borderRight = 'none';
             mb12[i].style.borderLeft = 'none';
             mb12[i].style.borderBottom = '1px solid #E6E6E6';
-            for (var j = 0; j < empty.length; ++j) {
-                mb12[i].parentNode.removeChild(empty[j]);
-            }
             for (var j = 0; j < mb12Room.length; ++j) {
                 mb12Room[j].parentNode.removeChild(mb12Room[j]);
+            }
+        }
+
+        // removing empty cells from the "Maroon Bells 1&2" column
+        var ths = [];
+        var empty = document.querySelector('tbody').querySelectorAll('td[class="sz-session-empty"]');
+        for (var j = 0; j < empty.length; ++j) {
+            var sibling = empty[j].previousElementSibling;
+            if (sibling.nodeName === "TH" && ths.lastIndexOf(sibling) === -1) {
+                ths.push(sibling);
+                empty[j].parentNode.removeChild(empty[j]);
             }
         }
 
