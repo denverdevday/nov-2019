@@ -48,13 +48,22 @@
 <div id="menu" class="container-fluid mt-3 mb-3">
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
-            <a href="https://sessionize.com/denver-dev-day-fall-2019/">Call For Speakers</a>
+            <a href="#schedule">Schedule</a>
+        </div>
+        <div class="col-md-auto">
+            <a href="./sessions.html#sessions">Sessions</a>
+        </div>
+        <div class="col-md-auto">
+            <a href="./speakers.html#speakers">Speakers</a>
         </div>
         <div class="col-md-auto">
             <a href="#sponsors">Sponsors</a>
         </div>
         <div class="col-md-auto">
             <a href="./sponsorship.html#info">Sponsorship Information</a>
+        </div>
+        <div class="col-md-auto">
+            <a href="./floorplan.html#floorplan">Floor Plan</a>
         </div>
     </div>
 </div>
@@ -72,6 +81,52 @@
     on neat technology that you could share with other developers in our developer community,
     step up&nbsp;&ndash; let this year be the year you submit a talk to Denver Dev Day.</p>
 </div>
+
+<!-- Schedule widget -->
+
+<div id="schedule" class="container-fluid mt-5 mb-5">
+    <a name="schedule"></a>
+    <script type="text/javascript" src="https://sessionize.com/api/v2/vebc2t4q/view/gridtable"></script>
+
+    <script type="text/javascript">
+        var mb12 = document.querySelectorAll('[data-room-name="Maroon Bells 1&2"]');
+        for (var i = 0; i < mb12.length; ++i) {
+            var empty = mb12[i].parentNode.querySelectorAll('[class="sz-session-empty"]');
+            var mb12Room = mb12[i].querySelectorAll('[class="sz-session__room"]');
+            mb12[i].colSpan = 5;
+            mb12[i].style.textAlign = 'center';
+            mb12[i].style.borderTop = 'none';
+            mb12[i].style.borderRight = 'none';
+            mb12[i].style.borderLeft = 'none';
+            mb12[i].style.borderBottom = '1px solid #E6E6E6';
+            for (var j = 0; j < empty.length; ++j) {
+                mb12[i].parentNode.removeChild(empty[j]);
+            }
+            for (var j = 0; j < mb12Room.length; ++j) {
+                mb12Room[j].parentNode.removeChild(mb12Room[j]);
+            }
+        }
+
+        var hl = document.querySelectorAll('tr.sz-row-highlight');
+        for (var j = 0; j < hl.length; ++j) {
+            hl[j].className = hl[j].className.replace('sz-row-highlight', '');
+        }
+    </script>
+</div>
+
+<!-- <div id="app" class="container-fluid mt-5 mb-5">
+    <a name="app"></a>
+    <h2>Our App</h2>
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                <a href="http://aka.ms/ddd-app-ios"><img src="./assets/app-store-badge.png" title="Download on the App Store"></a>
+                &nbsp;
+                <a href="http://aka.ms/ddd-app-android"><img src="./assets/google-play-badge.png" height="80" width="auto" title="Get it on Google Play"></a>
+            </div>
+        </div>
+    </div>
+</div> -->
 
 <div id="sponsors" class="container-fluid mt-5 mb-5">
     <h2>Sponsors</h2>
